@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import { Route, Switch } from 'react-router-dom'
 
 import Navbar from "./components/Navbar";
 import Content from "./components/Content";
-import HeroeList from "./components/HeroeList";
+import Heroes from "./components/Heroes";
+import Home from "./components/Home";
+import About from "./components/About";
 
-import heroes from './api';
+// import heroes from './api';
 
 
 class App extends Component {
@@ -12,7 +15,11 @@ class App extends Component {
     return (
       <Content>
         <Navbar />
-        <HeroeList heroes={heroes}/>
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/heroes" component={Heroes}></Route>
+          <Route exact path="/about" component={About}></Route>
+        </Switch>
       </Content>
     );
   }
