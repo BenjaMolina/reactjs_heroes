@@ -2,6 +2,23 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class Navbar extends Component {
+
+  constructor(props){
+    super(props);
+
+    this.state = {
+      search: '',
+    };
+
+  }
+
+  setSearch = (e) => {
+    console.log(e.target.value);
+    this.setState({
+      search: e.target.value,
+    })
+  };
+
   render() {
     const styles = {
       mgBottom: {
@@ -17,11 +34,11 @@ class Navbar extends Component {
         <div className="container">
           <Link to="/" className="navbar-brand">
             <img
-              src="./img/logo.ico"
+              src="../img/logo.ico"
               width="30"
               height="30"
               className="d-inline-block align-top"
-              alt="Heroes"
+              
             />
           </Link>
           <button
@@ -60,13 +77,11 @@ class Navbar extends Component {
                 type="search"
                 placeholder="Buscar heroe"
                 aria-label="Search"
+                onChange={this.setSearch}
               />
-              <button
-                className="btn btn-outline-primary my-2 my-sm-0"
-                type="button"
-              >
+              <Link to={`/busqueda/${this.state.search}`} className="btn btn-outline-primary my-2 my-sm-0">
                 Buscar
-              </button>
+              </Link>
             </div>
           </div>
         </div>
