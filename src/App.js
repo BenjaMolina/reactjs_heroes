@@ -9,7 +9,6 @@ import About from "./components/About";
 import NotFound404 from "./components/NotFound404";
 import Search from "./components/Search";
 
-// import heroes from './api';
 
 
 class App extends Component {
@@ -19,9 +18,9 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/heroes" component={Heroes}/>
-          <Route exact path="/about" component={About}/>
-          <Route exact path="/busqueda/:search" component={Search}/>
+          <Route path="/heroes" component={Heroes}/>
+          <Route path="/about" component={About}/>
+          <Route path="/busqueda/:search?" component={Search}/>
           <Route  component={NotFound404}/>
         </Switch>
       </Content>

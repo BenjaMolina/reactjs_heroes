@@ -9,7 +9,6 @@ export class Search extends Component {
           Buscando: <small>{ search }</small>
         </h1>
         <br />
-
         <div class="row">
           <div class="col-md-12">
             <div class="alert alert-info">

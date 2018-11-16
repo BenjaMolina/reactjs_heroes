@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 class HeroeCard extends Component {
   render() {
@@ -18,18 +19,16 @@ class HeroeCard extends Component {
             </p>
             <div className="d-flex justify-content-between align-items-center">
               <div className="btn-group">
-                <button
-                  type="button"
-                  className="btn btn-sm btn-outline-secondary"
-                >
+                <Link to={`/heroes/${heroe.id}`} className="btn btn-sm btn-outline-secondary">
                   View
-                </button>
-                <button
+                </Link>
+                
+                {/* <button
                   type="button"
                   className="btn btn-sm btn-outline-secondary"
                 >
                   Edit
-                </button>
+                </button> */}
               </div>
               <small className="text-muted">{heroe.aparicion }</small>
             </div>
