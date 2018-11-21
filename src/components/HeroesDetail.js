@@ -7,8 +7,9 @@ import "../app.css";
 class HeroesDetail extends Component {
   render() {
     const { id } = this.props.match.params;
+    const { history } = this.props;
     const heroe = heroesAPI.getOne(Number(id));
-
+    console.log(history);
     return (
       <div className="container">
         <h1 className="animated fadeIn">
@@ -23,9 +24,13 @@ class HeroesDetail extends Component {
 
             <br />
             <br />
-            <Link to="/heroes" className="btn btn-outline-danger btn-block">
+
+            {/* <Link to="/heroes" className="btn btn-outline-danger btn-block">
               Regresar
-            </Link>
+            </Link> */}
+            <button type="button" className="btn btn-outline-danger btn-block" onClick={() => history.goBack() }>
+              Regresar
+            </button>
           </div>
           <div className="col-md-8">
             <h3>{heroe.nombre}</h3>
