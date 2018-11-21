@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import logo from '../img/logo.ico';
 
@@ -34,7 +34,7 @@ class Navbar extends Component {
         style={styles.mgBottom}
       >
         <div className="container">
-          <Link to="/" className="navbar-brand">
+          <NavLink to="/" className="navbar-brand">
             <img
               src={logo}
               width="30"
@@ -42,7 +42,7 @@ class Navbar extends Component {
               className="d-inline-block align-top"
               
             />
-          </Link>
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -57,20 +57,20 @@ class Navbar extends Component {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
-                <Link to="/" className="nav-link">
+              <li className="nav-item">
+                <NavLink to="/" activeClassName="active" exact={true} className="nav-link">
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link to="/heroes" className="nav-link">
+                <NavLink to="/heroes" activeClassName="active" className="nav-link">
                   Heroes
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link to="/about" className="nav-link">
+                <NavLink to="/about" activeClassName="active" className="nav-link">
                   About
-                </Link>
+                </NavLink>
               </li>
             </ul>
             <div className="form-inline my-2 my-lg-0">
@@ -81,9 +81,9 @@ class Navbar extends Component {
                 aria-label="Search"
                 onChange={this.setSearch}
               />
-              <Link to={`/busqueda/${this.state.search}`} className="btn btn-outline-primary my-2 my-sm-0">
+              <NavLink to={`/busqueda/${this.state.search}`} activeClassName="active" className="btn btn-outline-primary my-2 my-sm-0">
                 Buscar
-              </Link>
+              </NavLink>
             </div>
           </div>
         </div>
