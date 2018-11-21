@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import logo from '../img/logo.ico';
+
 class Navbar extends Component {
 
   constructor(props){
@@ -34,7 +36,7 @@ class Navbar extends Component {
         <div className="container">
           <Link to="/" className="navbar-brand">
             <img
-              src="../img/logo.ico"
+              src={logo}
               width="30"
               height="30"
               className="d-inline-block align-top"

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import heroesAPI from "../api";
 import "../app.css";
@@ -18,12 +18,14 @@ class HeroesDetail extends Component {
         <hr />
 
         <div className="row animated fadeIn fast">
-          <div className="col-md-4 col-sm-4">
-            <img src={`../${heroe.img}`} className="img-fluid" alt="" />
+          <div className="col-md-4">
+            <img src={heroe.img} className="img-fluid" alt="" />
 
             <br />
             <br />
-            <Link to='/heroes' className="btn btn-outline-danger btn-block">Regresar</Link>
+            <Link to="/heroes" className="btn btn-outline-danger btn-block">
+              Regresar
+            </Link>
           </div>
           <div className="col-md-8">
             <h3>{heroe.nombre}</h3>

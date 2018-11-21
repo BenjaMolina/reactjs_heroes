@@ -17,9 +17,9 @@ class App extends Component {
       <Content>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/heroes" component={Heroes}/>
-          <Route path="/about" component={About}/>
+          <Route exact path="/" activeClassName="active" component={Home} />
+          <Route path="/heroes" activeClassName="active" component={Heroes}/>
+          <Route path="/about" activeClassName="active" component={About}/>
           <Route path="/busqueda/:search?" component={Search}/>
           <Route  component={NotFound404}/>
         </Switch>
