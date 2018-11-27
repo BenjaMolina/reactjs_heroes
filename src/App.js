@@ -19,6 +19,10 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/heroes" component={Heroes}/>
+          <Route
+            path="/heroe"
+            render={(props) => <div>Nuevo Heroe</div>}
+          />
           <Route path="/about" component={About}/>
           <Route path="/busqueda/:search?" component={Search}/>
           <Route  component={NotFound404}/>

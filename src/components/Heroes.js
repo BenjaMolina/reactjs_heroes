@@ -22,6 +22,10 @@ class Heroes extends Component {
             path={`${match.path}/:id`}
             component={HeroesDetail}
           />
+          <Route
+            path={`${match.path}/heroe`}
+            render={(props) => <div>Nuevo Heroe</div>}
+          />
         </Switch>
       </div>
     );
