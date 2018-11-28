@@ -13,7 +13,7 @@ export default class NewHeroe extends Component {
         aparicion: "",
         casa: "DC"
       },
-      errors: []
+      errors: {}
     };
   }
 
@@ -57,14 +57,14 @@ export default class NewHeroe extends Component {
 
     const errors = this.validateValues(heroe);
     
-    if (errors.length <= 0) {
-      heroe.id = lastID;
-      addNewHeroe(heroe);
-      history.goBack();
-    } else {
+    if (Object.keys(errors).length) {
       this.setState({
         errors
       });
+    } else {
+      heroe.id = lastID;
+      addNewHeroe(heroe);
+      history.goBack();
     }
     // return;
   };
@@ -83,7 +83,7 @@ export default class NewHeroe extends Component {
             <label>Nombre</label>
             <input
               type="text"
-              className={`form-control ${errors.nombre ? 'is-invalid': ''}`}
+              className={`form-control ${errors.nombre ? "is-invalid" : ""}`}
               name="nombre"
               aria-describedby="emailHelp"
               placeholder="Nombre"
@@ -98,37 +98,33 @@ export default class NewHeroe extends Component {
             <label>Biografia</label>
             <input
               type="text"
-              className={`form-control ${errors.bio ? 'is-invalid': ''}`}
+              className={`form-control ${errors.bio ? "is-invalid" : ""}`}
               name="bio"
               aria-describedby="emailHelp"
               placeholder="Biografia"
               value={bio}
               onChange={this.onChangeInput}
             />
-            {errors.bio && (
-                <div className="invalid-feedback">{errors.bio}</div>
-              )}
+            {errors.bio && <div className="invalid-feedback">{errors.bio}</div>}
           </div>
           <div className="form-group">
             <label>Imagen</label>
             <input
               type="text"
-              className={`form-control ${errors.img ? 'is-invalid': ''}`}
+              className={`form-control ${errors.img ? "is-invalid" : ""}`}
               name="img"
               aria-describedby="emailHelp"
               placeholder="URL"
               value={img}
               onChange={this.onChangeInput}
             />
-            {errors.img && (
-                <div className="invalid-feedback">{errors.img}</div>
-              )}
+            {errors.img && <div className="invalid-feedback">{errors.img}</div>}
           </div>
           <div className="form-group">
             <label>Aparicion</label>
             <input
               type="text"
-              className={`form-control ${errors.aparicion ? 'is-invalid': ''}`}
+              className={`form-control ${errors.aparicion ? "is-invalid" : ""}`}
               name="aparicion"
               aria-describedby="emailHelp"
               placeholder="Aparicion"
@@ -136,23 +132,23 @@ export default class NewHeroe extends Component {
               onChange={this.onChangeInput}
             />
             {errors.aparicion && (
-                <div className="invalid-feedback">{errors.aparicion}</div>
-              )}
+              <div className="invalid-feedback">{errors.aparicion}</div>
+            )}
           </div>
           <div className="form-group">
             <label>Casa</label>
             <select
               value={casa}
               name="casa"
-              className={`form-control ${errors.casa ? 'is-invalid': ''}`}
+              className={`form-control ${errors.casa ? "is-invalid" : ""}`}
               onChange={this.onChangeInput}
             >
               <option value="DC">DC</option>
               <option value="Marvel">Marvel</option>
             </select>
             {errors.casa && (
-                <div className="invalid-feedback">{errors.casa}</div>
-              )}
+              <div className="invalid-feedback">{errors.casa}</div>
+            )}
           </div>
           <button type="submit" className="btn btn-primary">
             Agregar
