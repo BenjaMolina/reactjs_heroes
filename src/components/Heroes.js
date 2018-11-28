@@ -19,7 +19,7 @@ class Heroes extends Component {
           />
           <Route
             path={`${match.path}/:id`}
-            component={HeroesDetail}
+            render={(props) => <HeroesDetail {...props} heroes={heroes}/>}
           />
         </Switch>
       </div>

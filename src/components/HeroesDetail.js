@@ -7,8 +7,12 @@ import "../app.css";
 class HeroesDetail extends Component {
   render() {
     const { id } = this.props.match.params;
-    const { history } = this.props;
-    const heroe = heroesAPI.getOne(Number(id));
+    const { history, heroes } = this.props;
+    // const heroe = heroesAPI.getOne(Number(id));
+    
+    const heroe = heroes.find(heroe => {
+      return heroe.id == id;
+    });
 
     if (heroe) {
       return (
