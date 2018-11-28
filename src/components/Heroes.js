@@ -4,12 +4,11 @@ import { Switch, Route, Link } from "react-router-dom";
 import HeroeList from "./HeroeList";
 import HeroesDetail from "./HeroesDetail";
 
-import heroesAPI from "../api";
 
 class Heroes extends Component {
   render() {
-    const { match } = this.props;
-    const {heroes } = heroesAPI;
+    const { match, heroes } = this.props;
+    console.log(heroes.length)
     return (
       <div className="container">
         <Switch>
@@ -21,10 +20,6 @@ class Heroes extends Component {
           <Route
             path={`${match.path}/:id`}
             component={HeroesDetail}
-          />
-          <Route
-            path={`${match.path}/heroe`}
-            render={(props) => <div>Nuevo Heroe</div>}
           />
         </Switch>
       </div>
