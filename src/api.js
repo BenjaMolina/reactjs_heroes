@@ -74,6 +74,9 @@ const heroesAPI = {
     
   },
   search: function(search){
+    if(!search)
+      return {};
+    
     return this.heroes.filter(heroe =>{
       return heroe.nombre.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) >= 0; 
     })
